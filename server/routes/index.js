@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport')
 var tanggalController = require('../controllers/tanggalController')
 var letterController = require('../controllers/letterController')
 var userController = require('../controllers/userController')
@@ -10,7 +11,7 @@ router.get('/', function(req, res, next) {
 });
 
 //Routing User
-router.post('/login', userController.login);
+router.post('/login', passport.authenticate('didit-login'),userController.login);
 
 router.post('/register', userController.register);
 

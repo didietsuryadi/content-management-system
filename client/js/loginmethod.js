@@ -27,7 +27,8 @@ var app = new Vue({
             }
           })
         },
-        register: function() {
+        register: function(e) {
+          e.preventDefault()
           $.ajax({
             url: "http://localhost:3000/register",
             type: "POST",
