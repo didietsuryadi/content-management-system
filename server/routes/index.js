@@ -22,9 +22,9 @@ router.post('/api/letter', letterController.createData);
 
 router.get('/api/letter/search', letterController.searchData);
 
-router.put('/api/letter', letterController.updateData);
+router.put('/api/letter/:id', letterController.updateData);
 
-router.delete('/api/letter', letterController.deleteData);
+router.delete('/api/letter/:id', letterController.deleteData);
 
 //Routing tanggal table
 
@@ -34,9 +34,9 @@ router.post('/api/tanggal', tanggalController.createData);
 
 router.get('/api/tanggal/search', tanggalController.searchData);
 
-router.put('/api/tanggal', tanggalController.updateData);
+router.put('/api/tanggal/:id', tanggalController.updateData);
 
-router.delete('/api/tanggal', tanggalController.deleteData);
+router.delete('/api/tanggal/:id', tanggalController.deleteData);
 
 
 module.exports = router;
