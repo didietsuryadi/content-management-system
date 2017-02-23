@@ -24,12 +24,12 @@ module.exports = {
 
   verify: function(req, res, next){
     if (req.headers.token == 'null') {
-      res.json("you don't have access")
+      res.send("no authorization")
     }else{
       if (jwt.verify(req.headers.token, process.env.SECRET)) {
         next()
       }else {
-        res.json("token sudah expried")
+        res.send("expired token")
       }
     }
   }

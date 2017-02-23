@@ -14,7 +14,7 @@ module.exports = function (passport) {
 
     User.findOne({ username: usernameInput }, function(err, data){
       if (!data) {
-        done(null, false
+        done(null, false)
       }else{
         if (passwordHash.verify(passwordInput, data.password)) {
           done(null, data)

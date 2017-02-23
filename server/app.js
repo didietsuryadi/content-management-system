@@ -12,7 +12,7 @@ var passport = require('passport')
 require('dotenv').config()
 var app = express();
 
-mongoose.connect('mongodb://localhost/adminpanel', function (err) {
+mongoose.connect('mongodb://localhost/cms', function (err) {
   if (err) throw err
   console.log('database connected using mongoose')
 })
