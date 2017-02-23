@@ -19,7 +19,7 @@ var app = new Vue({
               console.log(data);
               if(data.token){
                 localStorage.setItem('token', data.token)
-                window.location.href = 'http://127.0.0.1:8080/index.html'
+                window.location.href = 'http://127.0.0.1:8080/dashboard.html'
               }else{
                 alert(data.message)
               }
