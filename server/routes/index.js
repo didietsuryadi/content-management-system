@@ -18,6 +18,8 @@ router.post('/register', userController.register);
 
 router.get('/api/letter', letterController.readData);
 
+router.get('/api/letter/:id', letterController.readDataById);
+
 router.post('/api/letter', letterController.createData);
 
 router.get('/api/letter/search', letterController.searchData);
@@ -29,6 +31,8 @@ router.delete('/api/letter/:id', letterController.deleteData);
 //Routing tanggal table
 
 router.get('/api/tanggal', tanggalController.readData);
+
+router.get('/api/tanggal/:id', tanggalController.readDataById);
 
 router.post('/api/tanggal', tanggalController.createData);
 

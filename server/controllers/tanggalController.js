@@ -13,7 +13,7 @@ module.exports = {
     })
   },
   updateData: function (req, res, next) {
-    Tanggal.findOneAndUpdate({_id: req.params.id})
+    Tanggal.findOneAndUpdate({_id: req.params.id},{tanggal: req.body.tanggal, frequency: req.body.frequency})
     .then(function(data){
       res.send(data)
     })
@@ -26,6 +26,11 @@ module.exports = {
   },
   readData: function (req, res, next) {
     Tanggal.find({}).then(function (data) {
+      res.send(data);
+    })
+  },
+  readDataById: function (req, res, next) {
+    Letter.find({_id: req.params.id}).then(function (data) {
       res.send(data);
     })
   },
