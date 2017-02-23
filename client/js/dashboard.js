@@ -73,6 +73,9 @@ var app = new Vue({
       resetButton: function() {
         app.add.letter = ''
         app.add.frequency = ''
+      },
+      logout: function(){
+        
       }
     }
 })

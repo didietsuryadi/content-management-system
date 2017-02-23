@@ -193,10 +193,10 @@
             <dd class="collapse in" id="demo" >
               <div class="container-fluid" style="padding-top: 20px;">
                 <p class="headings">Add New Record</p>
-                <form class="main-container">
+                <form class="main-container" method="post">
                   <div class="row">
                     <div class="col-xs-4">
-                      <label for="letter" class="label-style">Title</label>
+                      <label for="letter" class="label-style">Letter</label>
                     </div>
                     <div class="form-group col-lg-4">
                       <input type="text" id="letter" v-model="add.letter" class="form-control" placeholder="Letter" required>
@@ -204,15 +204,15 @@
                   </div>
                   <div class="row">
                     <div class="col-xs-4">
-                      <label for="fullname" class="label-style">Full Name</label>
+                      <label for="frequency" class="label-style">Full Name</label>
                     </div>
                     <div class="form-group col-lg-4">
-                      <input type="text" id="fullname" v-model="add.fullname" class="form-control" placeholder="Full Name" required>
+                      <input type="text" id="frequency" v-model="add.frequency" class="form-control" placeholder="Frequency" required>
                     </div>
                   </div>
                   <div class="button-container">
-                    <button class="btn btn-success" type="submit" @click="addHouse">Submit</button>
-                    <button class="btn btn-warning" type="reset" @click="resetButton">Reset</button>
+                    <button class="btn btn-success" type="button" @click="createData">Submit</button>
+                    <button class="btn btn-warning" type="button" @click="resetButton">Reset</button>
                   </div>
                 </form>
               </div>
@@ -234,15 +234,50 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>/index.html</td>
-                  <td>1265</td>
-                  <td>32.3%</td>
-                  <td>$321.33</td>
+                <tr v-for="data in letters">
+                  <td></td>
+                  <td>{{data.letter}}</td>
+                  <td>{{data.frequency}}</td>
+                  <td><button class="btn btn-success" type="button" data-toggle="modal" data-target="#update" @click="getData(data._id)">Update</button>
+                  <button class="btn btn-warning" type="button" @click="deleteData(data._id)">Delete</button></td>
                 </tr>
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+  <div id="update" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Record</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-4">
+              <label for="letter" class="label-style">Letter</label>
+            </div>
+            <div class="form-group col-lg-4">
+              <input type="text" id="letter" v-model="add.letter" class="form-control" placeholder="Letter" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <label for="frequency" class="label-style">Full Name</label>
+            </div>
+            <div class="form-group col-lg-4">
+              <input type="text" id="frequency" v-model="add.frequency" class="form-control" placeholder="Frequency" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info btn-lg btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-info btn-lg btn-submit" @click="editData(add._id)" data-dismiss="modal">Update</button>
         </div>
       </div>
 
@@ -269,6 +304,7 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="/js/dashboard.js"></script>
 <!-- Morris Charts JavaScript -->
 <script src="js/plugins/morris/raphael.min.js"></script>
 <script src="js/plugins/morris/morris.min.js"></script>
